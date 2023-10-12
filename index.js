@@ -15,10 +15,10 @@ fs.readdir(folderPath, (err, files) => {
 		const filePath = `${folderPath}/${file}`;
 
 		// Check if the file is a JPG image
-		if (file.endsWith(".jpeg")) {
+		if (file.endsWith(".png") || file.endsWith(".jpeg") || file.endsWith(".webp") || file.endsWith(".jpg") ) {
 			// Resize the image using sharp
 			sharp(filePath)
-				.resize(820, 820)
+				.resize(1920, 1080)
 				.toBuffer((resizeErr, buffer) => {
 					if (resizeErr) {
 						console.error(`Error resizing image ${file}:`, resizeErr);
